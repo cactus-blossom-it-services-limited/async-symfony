@@ -16,30 +16,27 @@ class StockTransactionController extends AbstractController
     public function buy(MessageBusInterface $bus): Response
     {
         // $notification->getOrder()->getBuyer()->getEmail()
-        //$order = new class {
-        //    public function getId()
-        //    {
-        //        return 1;
-        //    }
-        //    public function getBuyer(): object
-        //    {
-        //        return new class {
-        //            public function getEmail(): string
-        //            {
-        //                return 'email@example.tech';
-        //            }
-        //        };
-        //    }
-        //};
+        $order = new class {
+            public function getId()
+            {
+                return 1;
+            }
+            public function getBuyer(): object
+            {
+                return new class {
+                    public function getEmail(): string
+                    {
+                        return 'email@example.tech';
+                    }
 
+                };
+            }
+        };
 
         // 1. Dispatch confirmation message
-        $bus->dispatch(new SaveOrder());
+        $bus->dispatch(new PurchaseConfirmationNotification($order));
 
-        // 2. Display confirmation to the user
+        // 2. Display confirmation to user
         return $this->render('stocks/example.html.twig');
     }
-
-
-    // sell
 }
