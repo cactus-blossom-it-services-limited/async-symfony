@@ -184,3 +184,4 @@
 vendor/
 .idea/
 ###< symfony/framework-bundle ###
+docker-compose.override.yml
