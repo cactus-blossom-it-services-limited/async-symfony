@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Message;
+namespace App\Message\Event;
 
-class PurchaseConfirmationNotification
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
+
+#[AsMessageHandler]
+class orderSavedEvent
 {
-
     public function __construct(private int|string $orderId)
     {
     }
