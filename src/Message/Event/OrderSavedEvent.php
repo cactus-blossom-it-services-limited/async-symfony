@@ -2,10 +2,7 @@
 
 namespace App\Message\Event;
 
-use Symfony\Component\Messenger\Attribute\AsMessageHandler;
-
-#[AsMessageHandler]
-class orderSavedEvent
+class OrderSavedEvent
 {
     public function __construct(private int|string $orderId)
     {
