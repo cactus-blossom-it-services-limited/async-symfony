@@ -14,7 +14,7 @@ framework:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 retry_strategy:
                     service: null
-                    max_retries: 5
+                    max_retries: 3
                     delay: 1000
                     multiplier: 2
                     max_delay: 0
