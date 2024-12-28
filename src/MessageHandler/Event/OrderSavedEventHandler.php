@@ -18,6 +18,7 @@ class OrderSavedEventHandler
 
     public function __invoke(OrderSavedEvent $event)
     {
+        throw new \RuntimeException('ORDER COULD NOT BE FOUND');
         // TODO: Implement __invoke() method.
         // 1. Create a PDF contract note.
         $mpdf = new Mpdf();
